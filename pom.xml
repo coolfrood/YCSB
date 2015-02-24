@@ -14,27 +14,23 @@
     This is the top level project that builds, packages the core and all the DB bindings for YCSB infrastructure.
   </description>
   <dependencies>
-    <!-- voldemort -->
+	  <!-- voldemort -->
     <dependency>
       <groupId>checkstyle</groupId>
       <artifactId>checkstyle</artifactId>
       <version>5.0</version>
+      <exclusions>
+         <exclusion>
+           <groupId>com.google.collections</groupId>
+	   <artifactId>google-collections</artifactId>
+	 </exclusion>
+       </exclusions>
     </dependency>
     <dependency>
       <groupId>org.jdom</groupId>
       <artifactId>jdom</artifactId>
       <version>1.1</version>
     </dependency>
-    <!-- Conflicts with Cassandra cql driver -->
-    <!-- <dependency> -->
-    <!--   <groupId>com.google.collections</groupId> -->
-    <!--   <artifactId>google-collections</artifactId> -->
-    <!--   <version>1.0</version> -->
-    <!-- </dependency> -->
-    <!--
-    Nail down slf4j version to 1.6 so that it defaults to no-op logger.
-    http://www.slf4j.org/codes.html#StaticLoggerBinder
-    -->
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
@@ -46,8 +42,8 @@
   <properties>
     <maven.assembly.version>2.2.1</maven.assembly.version>
     <hbase.version>0.98.3-hadoop2</hbase.version>
-    <cassandra.version>2.0.7</cassandra.version>
-    <cassandra.cql.version>2.0.3</cassandra.cql.version>
+    <cassandra.version>2.0.12</cassandra.version>
+    <cassandra.cql.version>2.0.9.2</cassandra.cql.version>
     <accumulo.version>1.6.0</accumulo.version>
     <openjpa.jdbc.version>2.1.1</openjpa.jdbc.version>
     <mongodb.version>2.12.1</mongodb.version>
